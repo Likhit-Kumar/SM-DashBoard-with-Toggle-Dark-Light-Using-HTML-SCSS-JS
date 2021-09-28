@@ -1,0 +1,149 @@
+@use '../util' as *;
+
+// Using Flex 
+// .cards {
+//     display: flex;
+//     flex-direction: column;
+//     flex-wrap: wrap;
+//     gap: rem(30);
+//     @include breakpoint(medium) {
+//         flex-direction: row;
+//     }
+// }
+
+// Using Grid
+.cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: rem(30);
+    @include breakpoint(medium) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint(large) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    // flex: 1;
+    background: var(--card-bg);
+    color: var(--dark-text1);
+    text-align: center;
+    padding: rem(25);
+    border-radius: rem(5);
+    transition: background 150ms ease-in-out;
+
+    &:hover {
+        background: var(--card-hover);
+    }
+
+    &--facebook {
+        border-top: rem(5) solid var(--facebook);
+    }
+    &--twitter {
+        border-top: rem(5) solid var(--twitter);
+    }
+    &--instagram {
+        padding-top: rem(30);
+        &::before {
+            content: '';
+            position: absolute;
+            display: block;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: rem(5);
+            // background: var(--instagram-start);
+            background: linear-gradient(225deg,
+            var(--instagram-end),
+            var(--instagram-middle) 50.91%,
+            var(--instagram-start) 100%);
+        }
+        // border-top: rem(5) solid var(--instagram);
+    }
+    &--youtube {
+        border-top: rem(5) solid var(--youtube);
+    }
+
+    &__platform {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: rem(5);
+        margin-bottom: rem(28);
+        height: rem(20);
+    }
+
+
+    &__subtitle {
+        color: var(--text-color2);
+        font-size: rem(14);
+        font-weight: 700;
+    }
+
+    &__icon {
+        margin-right: rem(8);
+    }
+
+    &__username {
+        color: var(--text-color2);
+        font-size: rem(12);
+        font-weight: 700;
+    }
+
+    &__followers {
+        margin-bottom: rem(25);
+    }
+
+    &__count{
+        color: var(--text-color);
+        font-weight: 700;
+        letter-spacing: rem(-2);
+        line-height: 1;
+        margin-bottom: rem(4);
+
+        &--big {
+            font-size: rem(56);
+            font-weight: 700;
+        }
+
+        &--small{
+            font-size: rem(32);
+        }
+    }
+
+    &__label {
+        color: var(--dark-text1);
+        font-size: rem(12);
+        letter-spacing: rem(5);
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+
+    &__change {
+        display: flex;
+        font-size: rem(12);
+        font-weight: 700;
+        align-items: center;
+        justify-content: center;
+
+        &--up{
+            color: var(--limegreen);
+        }
+
+        &--down{
+            color: var(--brightred);
+        }
+
+        img {
+            margin-right: rem(4);
+        }
+    }
+
+    // &__number {
+    // }
+}
