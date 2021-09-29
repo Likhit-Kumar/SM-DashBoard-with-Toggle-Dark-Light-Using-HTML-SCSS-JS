@@ -33,8 +33,6 @@ function browserSyncServe(cb) {
     server: {
       baseDir: '.',
     },
-    server: "./src",
-    firefox: '-browser "firefox.exe"',
     notify: {
       styles: {
         top: 'auto',
